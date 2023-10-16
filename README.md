@@ -170,3 +170,96 @@ config
 ## Cara Pengerjaan
 ## Kendala yang Dihadapi
 1. server abimanyu tidak bisa ditemukan
+
+# Soal 4
+## Screenshot
+## Cara Pengerjaan
+## Kendala yang Dihadapi
+
+
+# Soal 5
+## Screenshot
+## Cara Pengerjaan
+## Kendala yang Dihadapi
+
+
+# Soal 6
+## Screenshot
+## Cara Pengerjaan
+## Kendala yang Dihadapi
+
+# Soal 7
+## Screenshot
+## Cara Pengerjaan
+## Kendala yang Dihadapi
+
+
+# Soal 8
+## Screenshot
+## Cara Pengerjaan
+## Kendala yang Dihadapi
+
+
+# Soal 9
+## Screenshot
+## Cara Pengerjaan
+## Kendala yang Dihadapi
+
+
+# Soal 10
+## Screenshot
+## Cara Pengerjaan
+## Kendala yang Dihadapi
+
+
+# Soal 11
+## Screenshot
+## Cara Pengerjaan
+## Kendala yang Dihadapi
+
+
+# Soal 12
+## Screenshot
+## Cara Pengerjaan
+## Kendala yang Dihadapi
+
+
+# Soal 13
+## Screenshot
+## Cara Pengerjaan
+## Kendala yang Dihadapi
+
+# Soal 14
+## Screenshot
+## Cara Pengerjaan
+## Kendala yang Dihadapi
+
+# Soal 15
+## Screenshot
+## Cara Pengerjaan
+## Kendala yang Dihadapi
+
+# Soal 16
+## Screenshot
+## Cara Pengerjaan
+## Kendala yang Dihadapi
+
+# Soal 17
+## Screenshot
+## Cara Pengerjaan
+## Kendala yang Dihadapi
+
+# Soal 18
+## Screenshot
+## Cara Pengerjaan
+## Kendala yang Dihadapi
+
+# Soal 19
+## Screenshot
+## Cara Pengerjaan
+## Kendala yang Dihadapi
+
+# Soal 20
+## Screenshot
+## Cara Pengerjaan
+## Kendala yang Dihadapi
