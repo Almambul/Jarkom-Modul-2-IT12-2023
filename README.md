@@ -366,14 +366,90 @@ Tidak ada kendala yang ditemukan
 # Soal 7
 ## Screenshot
 ## Cara Pengerjaan
+1. Membuka text editor /etc/bind/jarkom/abimanyu.IT12.com
+```nano /etc/bind/jarkom/abimanyu.IT12.com```
+2. Melakukan modifikasi menjadi
+```
+;
+;BIND data file for local loopback interface
+;
+$TTL    604800
+@       IN      SOA     abimanyu.IT12.com. root.abimanyu.IT12.com. (
+                2               ; Serial
+                604800          ; Refresh
+                86400           ; Retry
+                2419200         ; Expire
+                604800 )        ; Negative Cache TTL
+;
+@       IN      NS      abimanyu.IT12.com.
+@       IN      A       192.239.3.3
+www     IN      CNAME   abimanyu.IT12.com.
+parikesit IN 	A 	192.239.3.3
+ns1 	IN 	A	192.239.3.3
+baratayuda IN 	NS 	ns1
+```
+3. Membuka text editor /etc/bind/named.conf.options
+```nano /etc/bind/named.conf.options```
+4. Menambahkan ```allow-query{any;};``` pada isi file
+5. Beralih ke node werkudara, membuka text editor /etc/bind/named.conf.options
+```/etc/bind/named.conf.options```
+6. Menambahkan ```allow-query{any;};``` pada isi file
+7. Membuat folder baratayuda
+```mkdir /etc/bind/baratayuda```
+8. Memindahkan db.local ke baratayuda.abimanyu.IT12.com
+```cp /etc/bind/db.local /etc/bind/delegasi/its.jarkom2022.com```
+9. Restart bind9
+```service bind9 restart```
+10. Melakukan pengecekan
+```ping baratayuda.abimanyu.IT12.com```
 ## Kendala yang Dihadapi
-
+1. Error ketika melakukan testing
 
 # Soal 8
 ## Screenshot
 ## Cara Pengerjaan
-## Kendala yang Dihadapi
+1. Membuka text editor /etc/bind/named.conf.local
+```nano /etc/bind/named.conf.local```
+2. Menambahkan konfigurasi berupa
+```
+zone "rjp.baratayuda.abimanyu.it12.com" {
+    type master;
+    file "/etc/bind/zones/rjp.baratayuda.abimanyu.it12.com.";
+};
+```
+3. Membuat text editor /etc/bind/zones/rjp.baratayuda.abimanyu.it12.com
+```
+nano /etc/bind/zones/rjp.baratayuda.abimanyu.it12.com
+```
+4. Melakukan modifikasi isi file menjadi
+```
+;
+; BIND data file for local loopback interface
+;
+$TTL    604800
+@       IN      SOA     rjp.baratayuda.abimanyu.it12.com. root.rjp.baratayuda.abimanyu.it11.com. (
+                              2         ; Serial
+                         604800         ; Refresh
+                          86400         ; Retry
+                        2419200         ; Expire
+                         604800 )       ; Negative Cache TTL
+;
+@       IN      NS      rjp.baratayuda.abimanyu.it12.com.
 
+; DNS Records
+@           IN      A       192.239.3.3
+www         IN      CNAME   rjp.baratayuda.abimanyu.it12.com.
+```
+5. Melakukan restart bind9
+```
+service bind9 restart
+```
+6. Melakukan pengecekan
+```
+ping rjp.baratayuda.abimanyu.IT12.com
+```
+## Kendala yang Dihadapi
+Tidak ada kendala yang ditemukan
 
 # Soal 9
 ## Screenshot
