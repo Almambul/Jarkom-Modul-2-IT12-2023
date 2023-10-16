@@ -155,6 +155,70 @@ nslookup arjuna.IT12.com
 ## Screenshot
 ![no2](https://github.com/Almambul/Jarkom-Modul-2-IT12-2023/assets/107543354/95c1bb9c-95bc-4279-af6b-bfc2cd04dfd5)
 ## Cara Pengerjaan
+1. Membuka text editor /etc/bind/named/conf.local
+```nano /etc/bind/named.conf.local```
+2. Mengisi konfigurasi domain abimanyu.IT12.com
+```
+zone "abimanyu.IT12.com" {
+        type master;
+        file "/etc/bind/jarkom/abimanyu.IT12.com";
+};
+```
+3. Menyalin file db.local pada path /etc/bind/db.local ke dalam folder jarkom abimanyu.IT12.com
+```
+cp /etc/bind/db.local /etc/bind/jarkom/abimanyu.IT12.com
+```
+4. Membuka text editor /etc/bind/jarkom/abimanyu.IT12.com
+```
+nano /etc/bind/jarkom/abimanyu.IT12.com
+```
+5. Mengedit IP menyesuaikan kode kelompok
+```
+;
+;BIND data file for local loopback interface
+;
+$TTL    604800
+@       IN      SOA     abimanyu.IT12.com. root.abimanyu.IT12.com. (
+                2               ; Serial
+                604800          ; Refresh
+                86400           ; Retry
+                2419200         ; Expire
+                604800 )        ; Negative Cache TTL
+;
+@       IN      NS      abimanyu.IT12.com.
+@       IN      A       192.241.3.3
+www     IN      CNAME 	abimanyu.IT12.com.
+```
+6. Restart bind9
+```
+service bind9 restart
+```
+7. Membuka text editor /etc/resolv.conf
+```
+nano /etc/resolv.conf
+```
+8. Mencantumkan alamat IP
+```
+nameserver 192.168.122.1
+```
+9. Mengupdate dan menginstall dnsutils
+```
+apt-get update 
+apt-get install dnsutils -y
+```
+10.  Membuka text editor /etc/resolv.conf
+```
+nano /etc/resolv.conf
+```
+11. Mengubah alamat IP
+```
+nameserver 192.239.2.2
+```
+12. Melakukan nslookup
+```
+nslookup abimanyu.IT12.com
+```
+
 ## Kendala yang Dihadapi
 1. server abimanyu tidak bisa ditemukan
 
@@ -162,6 +226,36 @@ nslookup arjuna.IT12.com
 ## Screenshot
 ![no4](https://github.com/Almambul/Jarkom-Modul-2-IT12-2023/assets/107543354/6b251309-d705-4bfa-9c1b-eab09e72b46a)
 ## Cara Pengerjaan
+1. Membuka text editor /etc/bind/jarkom/abimanyu.IT12.com
+```
+nano /etc/bind/jarkom/abimanyu.IT12.com
+```
+2. Mengedit dan menambahkan konfigurasi menjadi
+```
+;
+;BIND data file for local loopback interface
+;
+$TTL    604800
+@       IN      SOA     abimanyu.IT12.com. root.abimanyu.IT12.com. (
+                2               ; Serial
+                604800          ; Refresh
+                86400           ; Retry
+                2419200         ; Expire
+                604800 )        ; Negative Cache TTL
+;
+@       IN      NS      abimanyu.IT12.com.
+@       IN      A       192.239.3.3
+www     IN      CNAME   abimanyu.IT12.com.
+parikesit IN	A	192.239.3.3
+```
+3. Melakukan service bind
+```
+service bind9 restart
+```
+4. Mencoba ping ke subdomain
+```
+ping parikesit.abimanyu.IT12.com
+```
 ## Kendala yang Dihadapi
 
 
@@ -169,6 +263,37 @@ nslookup arjuna.IT12.com
 ## Screenshot
 ![no5](https://github.com/Almambul/Jarkom-Modul-2-IT12-2023/assets/107543354/855f230c-259e-4fb1-b123-19120a9d71ac)
 ## Cara Pengerjaan
+1. Membuka text editor /etc/bind/named.conf.local
+```
+nano /etc/bind/named.conf.local
+```
+2. Menambahkan konfigurasi reverse dari 3 byte awal dari IP abimanyu ke dalam file named.conf.local
+```
+zone "3.239.192.in-addr.arpa" {
+    type master;
+    file "/etc/bind/jarkom/3.239.192.in-addr.arpa";
+};
+```
+3. Menyalin file db.lokal pada path /etc/bind ke folder jarkom, lalu mengubah nama menjadi 3.239.192.in-addr.arpa
+```
+cp /etc/bind/db.local /etc/bind/jarkom/3.239.192.in-addr.arpa
+```
+4. Membuka text editor /etc/bind/jarkom/3.239.192.in-addr.arpa
+```
+nano /etc/bind/jarkom/3.239.192.in-addr.arpa
+```
+5. Restart bind9
+```
+service bind9 restart
+```
+6. Melakukan update dan install dnsutils
+```
+apt-get update
+apt-get install dnsutils
+```
+7. Mengecek konfigurasi sudah benar atau belum pada node nakula
+```host -t PTR 192.239.3.3```
+
 ## Kendala yang Dihadapi
 
 
