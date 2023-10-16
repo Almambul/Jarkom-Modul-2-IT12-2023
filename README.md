@@ -75,93 +75,77 @@ Tidak mengalami kendala
 # Soal 2
 ## Screenshot
 ## Cara Pengerjaan
+1. Melakukan update ```apt-get update```
+2. Menginstall bind9
+```apt-get install bind9 -y```   
+3. Membuka text editor /etc/bind/named/conf.local
+```nano /etc/bind/named.conf.local```
+4. Mengisi konfigurasi domain arjuna.IT12.com
 ```
-#!/bin/bash
-
-config() {
-    if ! dpkg -l | grep -q bind9; then
-	su -c "apt-get install sudo"
-        sudo apt-get update
-        sudo apt-get install -y sudo bind9 nano
-    fi
-
-    # Create a zone configuration for "www.arjuna.it12.com"
-    sudo bash -c 'cat <<EOL > /etc/bind/named.conf.local
-zone "arjuna.it12.com" {
-    type master;
-    notify yes;
-    also-notify { 192.239.2.3; };
-    allow-transfer { 192.239.2.3; };
-    file "/etc/bind/jarkom/arjuna.it12.com";
+zone "arjuna.IT12.com" {
+        type master;
+        file "/etc/bind/jarkom/arjuna.IT12.com";
 };
-
-zone "abimanyu.it12.com" {
-    type master;
-    notify yes;
-    also-notify { 192.239.2.3; };
-    allow-transfer { 192.239.2.3; };
-    file "/etc/bind/jarkom/abimanyu.it12.com";
-};
-
-zone "2.239.192.in-addr.arpa" {
-    type master;
-    file "/etc/bind/jarkom/2.239.192.in-addr.arpa";
-};
-EOL'
-
-    # Generate the DNS records in the zone file with updated TTL and CNAME
-    sudo bash -c 'cat <<EOL > /etc/bind/jarkom/arjuna.it12.com
-\$TTL 604800
-@ IN SOA arjuna.it12.com. root.arjuna.it12.com. (
-    2	; Serial
-    604800	; Refresh
-    86400	; Retry
-    2419200	; Expire
-    604800 ); Negative Cache TTL
-@ IN NS arjuna.it12.com.
-@ IN A 192.239.3.2   ; IP address of your server
-@ IN AAAA ::1
-www in CNAME arjuna.it12.com.
-EOL'
-
-    # Generate the DNS records in the zone file with updated TTL and CNAME
-    sudo bash -c 'cat <<EOL > /etc/bind/jarkom/abimanyu.it12.com
-\$TTL 604800
-@ IN SOA abimanyu.it12.com. root.abimanyu.it12.com. (
-    2	; Serial
-    604800	; Refresh
-    86400	; Retry
-    2419200	; Expire
-    604800 ); Negative Cache TTL
-@ IN NS abimanyu.it12.com.
-@ IN A 192.239.3.4   ; IP address of your server
-@ IN AAAA ::1
-www in CNAME abimanyu.it12.com.
-www.parikesit IN CNAME abimanyu.it12.com.
-EOL'
-
-    # Generate the DNS records in the zone file with updated TTL and CNAME
-    sudo bash -c 'cat <<EOL > /etc/bind/jarkom/2.239.192.in-addr.arpa
-\$TTL 604800
-@ IN SOA abimanyu.it12.com. root.abimanyu.it12.com. (
-    2	; Serial
-    604800	; Refresh
-    86400	; Retry
-    2419200	; Expire
-    604800 ); Negative Cache TTL
-2.239.192.in-addr.arpa IN NS abimanyu.it12.com.
-2 IN PTR abimanyu.com.
-EOL'
-
-    # Restart BIND to apply the new configuration using 'systemctl'
-    service bind9 restart
-
-    echo "DNS Master (www.arjuna.it12.com) configured."
-}
-
-# Run the configure function
-config
 ```
+5. Membuat folder /etc/bind/jarkom
+```
+mkdir /etc/bind/jarkom
+```
+6. Menyalin file db.local pada path /etc/bind/db.local ke dalam folder jarkom arjuna.IT12.com
+```
+cp /etc/bind/db.local /etc/bind/jarkom/arjuna.IT12.com
+```
+7. Membuka text editor /etc/bind/jarkom/arjuna.IT12.com
+```
+nano /etc/bind/jarkom/arjuna.IT12.com
+```
+8. Mengedit IP menyesuaikan kode kelompok
+```
+;
+;BIND data file for local loopback interface
+;
+$TTL    604800
+@       IN      SOA     arjuna.IT12.com. root.arjuna.IT12.com. (
+                2               ; Serial
+                604800          ; Refresh
+                86400           ; Retry
+                2419200         ; Expire
+                604800 )        ; Negative Cache TTL
+;
+@       IN      NS      arjuna.IT12.com.
+@       IN      A       192.241.3.5
+www     IN      CNAME 	arjuna.IT12.com.
+```
+9. Restart bind9
+```
+service bind9 restart
+```
+10. Membuka text editor /etc/resolv.conf
+```
+nano /etc/resolv.conf
+```
+11. Mencantumkan alamat IP
+```
+nameserver 192.168.122.1
+```
+12. Mengupdate dan menginstall dnsutils
+```
+apt-get update 
+apt-get install dnsutils -y
+```
+13.  Membuka text editor /etc/resolv.conf
+```
+nano /etc/resolv.conf
+```
+14. Mengubah alamat IP
+```
+nameserver 192.239.2.2
+```
+15. Melakukan nslookup
+```
+nslookup arjuna.IT12.com
+```
+
 ## Kendala yang Dihadapi
 1. server arjuna tidak bisa ditemukan
 
