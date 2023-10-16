@@ -172,8 +172,61 @@ nslookup arjuna.IT12.com
 ## Screenshot
 ![WhatsApp Image 2023-10-16 at 18 13 43](https://github.com/Almambul/Jarkom-Modul-2-IT12-2023/assets/107543354/0f2ae580-b857-48d8-9cfe-0e63048b34c2)
 ## Cara Pengerjaan
-## Kendala yang Dihadapi
+1. Membuka text editor /etc/bind/named.conf.local
+2. Menyesuaikan zone abimanyu menjadi
+```
+zone "abimanyu.IT12.com" {
+    type master;
+    notify yes;
+    also-notify { 192.239.2.3; };
+    allow-transfer { 192.239.2.3; };
+    file "/etc/bind/jarkom/abimanyu.IT12.com";
+};
+```
+3. Melakukan restart bind9
+```
+service bind9 restart
+```
+4. Membuka node werkudara, melakukan update dan menginstall bind9
+```
+apt-get update
+apt-get install bind9 -y
+```
+5. Membuka text editor /etc/bind/named.conf.local
+```
+nano /etc/bind/named.conf.local
+```
+6. Menyesuaikan zone menjadi
+```
+zone "abimanyu.IT12.com" {
+    type slave;
+    masters { 192.239.2.2; };
+    file "/var/lib/bind/abimanyu.IT12.com";
+};
 
+```
+7. Melakukan restart bind9
+```
+service bind9 restart
+```
+8. Membuka node yudhistira dan menghentikan bind9 dari yudhistira
+```
+service bind9 stop
+```
+9. Membuka node nakula sebagai client
+```
+nano /etc/resolv.conf
+```
+10. Menambahkan nameserver dari werkudara menjadi
+```
+echo nameserver 192.239.2.2
+echo nameserver 192.239.2.3
+``` 
+11. Melakukan pengecekan ping ke abimanyu.IT12.com pada node nakula sebagai client
+```
+ping abimanyu.IT12.com
+```
+## Kendala yang Dihadapi
 # Soal 7
 ## Screenshot
 ## Cara Pengerjaan
