@@ -454,14 +454,161 @@ Tidak ada kendala yang ditemukan
 # Soal 9
 ## Screenshot
 ## Cara Pengerjaan
+1. Membuat text editor /var/www/jarkom/index.php pada node prabukusuma
+```nano /var/www/jarkom/index.php```
+2. Memasukkan kode php Halo
+```
+<?php
+echo "Hello World from prabukusuma";
+?>
+```
+3. Membuat text editor /etc/nginx/sites-available/jarkom
+```nano /etc/nginx/sites-available/jarkom```
+4. Memodifikasi isi file konfigurasi
+```
+server {
+    listen 8001;
+    root /var/www/jarkom;
+    index index.php index.html index.htm;
+    server_name _;
+    location / {
+        try_files $uri $uri/ /index.php?$query_string;
+    }
+    location ~ \.php$ {
+        include snippets/fastcgi-php.conf;
+        fastcgi_pass unix:/var/run/php/php7.2-fpm.sock;
+    }
+    location ~ /\.ht {
+        deny all;
+    }
+    error_log /var/log/nginx/jarkom_error.log;
+    access_log /var/log/nginx/jarkom_access.log;
+}
+```
+5. Menjalankan command ```ln -s /etc/nginx/sites-available/jarkom /etc/nginx/sites-enabled/jarkom```
+6. Menghapus /etc/nginx/sites-enabled/default
+```rm /etc/nginx/sites-enabled/default```
+7. Melakukan restart nginx
+```service nginx restart```
+8. Menjalankan command
+```
+service php7.2-fpm start
+service php7.2-fpm status
+```
+9. Mengakses menggunakan ```lynx http://10.69.3.2:8001```
+10. Membuat text editor /var/www/jarkom/index.php pada node wisanggeni
+```nano /var/www/jarkom/index.php```
+11. Menambahkan isi file dengan
+```
+<?php
+echo "Hello World";
+?>
+```
+12. Membuat text editor /etc/nginx/sites-available/jarkom
+```nano /etc/nginx/sites-available/jarkom```
+13. Melakukan modifikasi berupa
+```
+server {
+    listen 8003;
+    root /var/www/jarkom;
+    index index.php index.html index.htm;
+    server_name _;
+    location / {
+        try_files $uri $uri/ /index.php?$query_string;
+    }
+    location ~ \.php$ {
+        include snippets/fastcgi-php.conf;
+        fastcgi_pass unix:/var/run/php/php7.2-fpm.sock;
+    }
+    location ~ /\.ht {
+        deny all;
+    }
+    error_log /var/log/nginx/jarkom_error.log;
+    access_log /var/log/nginx/jarkom_access.log;
+}
+```
+14. Menjalankan command seperti pada node prabukusuma berupa
+```
+ln -s /etc/nginx/sites-available/jarkom /etc/nginx/sites-enabled/jarkom
+rm /etc/nginx/sites-enabled/default
+service nginx restart
+service php7.2-fpm start
+service php7.2-fpm status
+```
+15. Mengakses menggunakan ```lynx http://10.69.3.3:8003```
+16. Membuat text editor /var/www/jarkom/index.php pada node wisanggeni
+```nano /var/www/jarkom/index.php```
+17. Menambahkan isi file dengan
+```
+<?php
+echo "Hello World";
+?>
+```
+18. Membuat text editor /etc/nginx/sites-available/jarkom pada node abimanyu
+```nano /etc/nginx/sites-available/jarkom```
+19. Melakukan modifikasi berupa
+```
+server {
+    listen 8002;
+    root /var/www/jarkom;
+    index index.php index.html index.htm;
+    server_name _;
+    location / {
+        try_files $uri $uri/ /index.php?$query_string;
+    }
+    location ~ \.php$ {
+        include snippets/fastcgi-php.conf;
+        fastcgi_pass unix:/var/run/php/php7.2-fpm.sock;
+    }
+    location ~ /\.ht {
+        deny all;
+    }
+    error_log /var/log/nginx/jarkom_error.log;
+    access_log /var/log/nginx/jarkom_access.log;
+}
+```
+20. Menjalankan command seperti pada node prabukusuma dan wisanggeni berupa
+```
+ln -s /etc/nginx/sites-available/jarkom /etc/nginx/sites-enabled/jarkom
+rm /etc/nginx/sites-enabled/default
+service nginx restart
+service php7.2-fpm start
+service php7.2-fpm status
+```
+21. Mengakses menggunakan ```lynx http://10.69.3.3:8002```
 ## Kendala yang Dihadapi
-
+Tidak ada kendala yang ditemukan
 
 # Soal 10
 ## Screenshot
 ## Cara Pengerjaan
+1. Membuat text editor /etc/nginx/sites-available/load-balancer pada node arjuna sebagai load balancer
+```nano /etc/nginx/sites-available/load-balancer```
+2. Memodifikasi konfigurasi berupa
+```
+upstream webserver {
+    server 10.69.3.2:8001; # Prabukusuma
+    server 10.69.3.3:8002; # Abimanyu
+    server 10.69.3.4:8003; # Wisanggeni
+}
+server {
+    listen 80;
+    server_name arjuna.it11.com www.arjuna.it12.com;
+    location / {
+        proxy_pass http://webserver;
+    }
+}
+```
+3. Menjalankan command
+```
+ln -s /etc/nginx/sites-available/load-balancer /etc/nginx/sites-enabled/load-balancer
+```
+4. Restart nginx
+```service nginx restart```
+5. Mengakses menggunakan
+```lynx http://www.arjuna.it12.com```
 ## Kendala yang Dihadapi
-
+Tidak ada kendala yang ditemukan
 
 # Soal 11
 ## Screenshot
