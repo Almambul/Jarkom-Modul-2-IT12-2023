@@ -6,6 +6,7 @@ Anggota Kelompok :
 # Soal 1
 ## Screenshot
 ![image](https://github.com/Almambul/Jarkom-Modul-2-IT12-2023/assets/107543354/7591c410-26c9-46cf-84e5-901f88a0360c)
+![WhatsApp Image 2023-10-16 at 17 19 07](https://github.com/Almambul/Jarkom-Modul-2-IT12-2023/assets/107543354/9c033405-7abc-405d-8b40-da568b0fb3c2)
 ## Cara Pengerjaan
 1. Membuat topologi yang diminta pada GNS web setelah melakukan start pada virtual box
 2. Menghubungkan garis antara node 1 dengan node lainnya
@@ -74,7 +75,7 @@ Tidak mengalami kendala
 
 # Soal 2
 ## Screenshot
-![WhatsApp Image 2023-10-16 at 17 19 07](https://github.com/Almambul/Jarkom-Modul-2-IT12-2023/assets/107543354/9c033405-7abc-405d-8b40-da568b0fb3c2)
+![no2fix](https://github.com/Almambul/Jarkom-Modul-2-IT12-2023/assets/107543354/2f5aebbb-ebd6-44b0-b936-dccacb1162f9)
 ## Cara Pengerjaan
 1. Melakukan update ```apt-get update```
 2. Menginstall bind9
@@ -152,18 +153,21 @@ nslookup arjuna.IT12.com
 
 # Soal 3
 ## Screenshot
+![no2](https://github.com/Almambul/Jarkom-Modul-2-IT12-2023/assets/107543354/95c1bb9c-95bc-4279-af6b-bfc2cd04dfd5)
 ## Cara Pengerjaan
 ## Kendala yang Dihadapi
 1. server abimanyu tidak bisa ditemukan
 
 # Soal 4
 ## Screenshot
+![no4](https://github.com/Almambul/Jarkom-Modul-2-IT12-2023/assets/107543354/6b251309-d705-4bfa-9c1b-eab09e72b46a)
 ## Cara Pengerjaan
 ## Kendala yang Dihadapi
 
 
 # Soal 5
 ## Screenshot
+![no5](https://github.com/Almambul/Jarkom-Modul-2-IT12-2023/assets/107543354/855f230c-259e-4fb1-b123-19120a9d71ac)
 ## Cara Pengerjaan
 ## Kendala yang Dihadapi
 
