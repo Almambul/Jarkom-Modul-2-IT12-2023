@@ -604,9 +604,13 @@ server {
 ln -s /etc/nginx/sites-available/load-balancer /etc/nginx/sites-enabled/load-balancer
 ```
 4. Restart nginx
-```service nginx restart```
-5. Mengakses menggunakan
-```lynx http://www.arjuna.it12.com```
+```
+service nginx restart
+```
+6. Mengakses menggunakan
+```
+lynx http://www.arjuna.it12.com
+```
 ## Kendala yang Dihadapi
 Tidak ada kendala yang ditemukan
 
