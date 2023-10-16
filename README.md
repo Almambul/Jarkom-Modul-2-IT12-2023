@@ -170,6 +170,7 @@ nslookup arjuna.IT12.com
 
 # Soal 6
 ## Screenshot
+![WhatsApp Image 2023-10-16 at 18 13 43](https://github.com/Almambul/Jarkom-Modul-2-IT12-2023/assets/107543354/0f2ae580-b857-48d8-9cfe-0e63048b34c2)
 ## Cara Pengerjaan
 ## Kendala yang Dihadapi
 
