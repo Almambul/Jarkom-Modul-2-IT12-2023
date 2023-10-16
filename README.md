@@ -151,6 +151,7 @@ nslookup arjuna.IT12.com
 ## Kendala yang Dihadapi
 1. server arjuna tidak bisa ditemukan
 
+
 # Soal 3
 ## Screenshot
 ![no2](https://github.com/Almambul/Jarkom-Modul-2-IT12-2023/assets/107543354/95c1bb9c-95bc-4279-af6b-bfc2cd04dfd5)
@@ -222,6 +223,7 @@ nslookup abimanyu.IT12.com
 ## Kendala yang Dihadapi
 1. server abimanyu tidak bisa ditemukan
 
+
 # Soal 4
 ## Screenshot
 ![no4](https://github.com/Almambul/Jarkom-Modul-2-IT12-2023/assets/107543354/6b251309-d705-4bfa-9c1b-eab09e72b46a)
@@ -257,6 +259,7 @@ service bind9 restart
 ping parikesit.abimanyu.IT12.com
 ```
 ## Kendala yang Dihadapi
+Tidak ada kendala yang ditemukan
 
 
 # Soal 5
@@ -295,6 +298,7 @@ apt-get install dnsutils
 ```host -t PTR 192.239.3.3```
 
 ## Kendala yang Dihadapi
+Tidak ada kendala yang ditemukan
 
 
 # Soal 6
@@ -356,6 +360,9 @@ echo nameserver 192.239.2.3
 ping abimanyu.IT12.com
 ```
 ## Kendala yang Dihadapi
+Tidak ada kendala yang ditemukan
+
+
 # Soal 7
 ## Screenshot
 ## Cara Pengerjaan
