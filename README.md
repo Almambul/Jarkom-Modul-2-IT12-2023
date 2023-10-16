@@ -74,6 +74,7 @@ Tidak mengalami kendala
 
 # Soal 2
 ## Screenshot
+![WhatsApp Image 2023-10-16 at 17 19 07](https://github.com/Almambul/Jarkom-Modul-2-IT12-2023/assets/107543354/9c033405-7abc-405d-8b40-da568b0fb3c2)
 ## Cara Pengerjaan
 1. Melakukan update ```apt-get update```
 2. Menginstall bind9
