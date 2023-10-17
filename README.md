@@ -1,4 +1,4 @@
-# Jarkom-Modul-2-IT12-2023
+![image](https://github.com/Almambul/Jarkom-Modul-2-IT12-2023/assets/113072294/966e3195-c59a-450c-b070-c7e18bcd0e9d)# Jarkom-Modul-2-IT12-2023
 Anggota Kelompok : 
 1. Raditya Pratama - 5027211047
 2. Salmaa Satifha Dewi - 5027211011
@@ -512,7 +512,7 @@ server {
 service php7.2-fpm start
 service php7.2-fpm status
 ```
-9. Mengakses menggunakan ```lynx http://192.239.2.2:8001```
+9. Mengakses menggunakan ```lynx http://10.69.3.2:8001```
 10. Membuat text editor /var/www/jarkom/index.php pada node wisanggeni
 ```nano /var/www/jarkom/index.php```
 11. Menambahkan isi file dengan
@@ -552,7 +552,7 @@ service nginx restart
 service php7.2-fpm start
 service php7.2-fpm status
 ```
-15. Mengakses menggunakan ```lynx http://192.239.3.3:8003```
+15. Mengakses menggunakan ```lynx http://10.69.3.3:8003```
 16. Membuat text editor /var/www/jarkom/index.php pada node wisanggeni
 ```nano /var/www/jarkom/index.php```
 17. Menambahkan isi file dengan
@@ -592,25 +592,26 @@ service nginx restart
 service php7.2-fpm start
 service php7.2-fpm status
 ```
-21. Mengakses menggunakan ```lynx http://192.239.3.3:8002```
+21. Mengakses menggunakan ```lynx http://10.69.3.3:8002```
 ## Kendala yang Dihadapi
 Tidak ada kendala yang ditemukan
 
 # Soal 10
 ## Screenshot
+![image](https://github.com/Almambul/Jarkom-Modul-2-IT12-2023/assets/113072294/172ecd96-7d12-4caf-8501-7c18885269be)
 ## Cara Pengerjaan
 1. Membuat text editor /etc/nginx/sites-available/load-balancer pada node arjuna sebagai load balancer
 ```nano /etc/nginx/sites-available/load-balancer```
 2. Memodifikasi konfigurasi berupa
 ```
 upstream webserver {
-    server 192.239.3.2:8001; # Prabukusuma
-    server 192.239.3.3:8002; # Abimanyu
-    server 192.239.3.4:8003; # Wisanggeni
+    server 10.69.3.2:8001; # Prabukusuma
+    server 10.69.3.3:8002; # Abimanyu
+    server 10.69.3.4:8003; # Wisanggeni
 }
 server {
     listen 80;
-    server_name arjuna.it11.com www.arjuna.it12.com;
+    server_name arjuna.it12.com www.arjuna.it12.com;
     location / {
         proxy_pass http://webserver;
     }
@@ -633,6 +634,7 @@ Tidak ada kendala yang ditemukan
 
 # Soal 11
 ## Screenshot
+![image](https://github.com/Almambul/Jarkom-Modul-2-IT12-2023/assets/113072294/87694342-2b4b-44c6-85de-2eef1d4f77fb)
 ## Cara Pengerjaan
 1. Membuka text editor /etc/apache2/sites-available/abimanyu-IT12.conf
 ```
@@ -679,6 +681,7 @@ Tidak ada kendala
 
 # Soal 12
 ## Screenshot
+![image](https://github.com/Almambul/Jarkom-Modul-2-IT12-2023/assets/113072294/272f45cb-6e30-449f-861a-5ca9a3eebf53)
 ## Cara Pengerjaan
 1. Mengkonfigurasi pada /etc/apache2/sites-available/abimanyu-IT12.conf
 2. Memodifikasi kode menjadi
@@ -710,6 +713,8 @@ Tidak ada kendala
 
 # Soal 13
 ## Screenshot
+![image](https://github.com/Almambul/Jarkom-Modul-2-IT12-2023/assets/113072294/c3a2401c-675c-4839-b8eb-daeaea7ace5e)
+![image](https://github.com/Almambul/Jarkom-Modul-2-IT12-2023/assets/113072294/42fcb266-d520-4288-9ea5-27416f3e557a)
 ## Cara Pengerjaan
 1. Melakukan konfigurasi pada ```/etc/apache2/sites-available/parikesit-abimanyu-IT12.conf```
 2. Memodifikasi kode didalamnya dengan
@@ -741,7 +746,13 @@ lynx http://www.parikesit.abimanyu.IT12.com
 Tidak ada kendala
 
 # Soal 14
+
 ## Screenshot
+![image](https://github.com/Almambul/Jarkom-Modul-2-IT12-2023/assets/113072294/c884cabd-983c-4087-8480-4a6353b6cb92)
+![image](https://github.com/Almambul/Jarkom-Modul-2-IT12-2023/assets/113072294/5866fb28-83b2-49a8-b9e0-848bcdc3750e)
+![image](https://github.com/Almambul/Jarkom-Modul-2-IT12-2023/assets/113072294/fb13c4ab-0fb8-47d2-8e3e-72325becbc7f)
+![image](https://github.com/Almambul/Jarkom-Modul-2-IT12-2023/assets/113072294/308770d6-5b91-4a58-9bb7-c77125c2cf41)
+
 ## Cara Pengerjaan
 1. Menyalakan directory listing pada folder public dan mematikan directory listing pada secret dengan mengakses ke
 ```
@@ -770,6 +781,9 @@ Tidak ada kendala
 
 # Soal 15
 ## Screenshot
+![image](https://github.com/Almambul/Jarkom-Modul-2-IT12-2023/assets/113072294/4113cf9e-fbf2-48fa-9dde-c7df173fa226)
+![image](https://github.com/Almambul/Jarkom-Modul-2-IT12-2023/assets/113072294/06da0dd9-d30c-4d42-93f2-c3ca242e6d46)
+
 ## Cara Pengerjaan
 1. Membuka text editor /etc/apache2/sites-available/parikesit-abimanyu-IT12.conf
 2. Menambahkan kode
@@ -790,6 +804,7 @@ Tidak ada kendala
 
 # Soal 16
 ## Screenshot
+![image](https://github.com/Almambul/Jarkom-Modul-2-IT12-2023/assets/113072294/1d9ba97b-5e40-4b43-a277-d69677adec43)
 ## Cara Pengerjaan
 1. Membuka text editor /etc/apache2/sites-available/parikesit-abimanyu-IT12.conf
 ```
@@ -818,6 +833,8 @@ Tidak ada kendala
 
 # Soal 17
 ## Screenshot
+![image](https://github.com/Almambul/Jarkom-Modul-2-IT12-2023/assets/113072294/f05f10a9-322f-4d38-a084-c1166f80b704)
+
 ## Cara Pengerjaan
 1. Melakukan modifikasi konfigurasi pada  /etc/apache2/sites-available/rjp-baratayuda-abimanyu-IT12.conf
 ```nano  /etc/apache2/sites-available/rjp-baratayuda-abimanyu-IT12.conf```
@@ -862,6 +879,11 @@ Tidak ada kendala
 
 # Soal 18
 ## Screenshot
+![image](https://github.com/Almambul/Jarkom-Modul-2-IT12-2023/assets/113072294/a09b7b9a-4f3d-429d-9b05-846371d7e799)
+![image](https://github.com/Almambul/Jarkom-Modul-2-IT12-2023/assets/113072294/15adbc67-09a1-40bc-a476-bd998237b2c6)
+![image](https://github.com/Almambul/Jarkom-Modul-2-IT12-2023/assets/113072294/11c7afda-bed7-4f77-bad3-509f7f5757a8)
+![image](https://github.com/Almambul/Jarkom-Modul-2-IT12-2023/assets/113072294/02da72bb-5256-46f6-a820-748c80aee5da)
+
 ## Cara Pengerjaan
 1. Membuka text editor /etc/apache2/sites-available/rjp-baratayuda-abimanyu-IT12.conf
 2. Menambahkan konfigurasi berupa
@@ -910,18 +932,22 @@ lynx http://www.rjp.baratayuda.abimanyu.IT12.com:14000
 
 # Soal 19
 ## Screenshot
+![image](https://github.com/Almambul/Jarkom-Modul-2-IT12-2023/assets/113072294/1852abd2-358d-4166-81a0-16c66d43ec85)
+![image](https://github.com/Almambul/Jarkom-Modul-2-IT12-2023/assets/113072294/6d3e3fcd-82b6-431a-9605-4d967162aaf0)
+
 ## Cara Pengerjaan
 1. Membuka text editor /etc/apache2/sites-available/abimanyu-IT12.conf
 2. Menambahkan kode
 ```
 ServerAlias 192.239.3.3
 ```
-3. Mengakses ```lynx http://192.239.3.3``` dan akan tampil halaman home
+3. Mengakses ```lynx http://10.69.3.3``` dan akan tampil halaman home
 ## Kendala yang Dihadapi
 Tidak ada kendala
 
 # Soal 20
 ## Screenshot
+![image](https://github.com/Almambul/Jarkom-Modul-2-IT12-2023/assets/113072294/aaf42d6e-c358-4b99-b53b-26e22961efbd)
 ## Cara Pengerjaan
 1. Membuka text editor /etc/apache2/sites-available/parikesit-abimanyu-IT12.conf
 2. Memodifikasi isi file dengan
