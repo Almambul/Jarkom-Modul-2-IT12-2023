@@ -512,7 +512,7 @@ server {
 service php7.2-fpm start
 service php7.2-fpm status
 ```
-9. Mengakses menggunakan ```lynx http://10.69.3.2:8001```
+9. Mengakses menggunakan ```lynx http://192.239.2.2:8001```
 10. Membuat text editor /var/www/jarkom/index.php pada node wisanggeni
 ```nano /var/www/jarkom/index.php```
 11. Menambahkan isi file dengan
@@ -552,7 +552,7 @@ service nginx restart
 service php7.2-fpm start
 service php7.2-fpm status
 ```
-15. Mengakses menggunakan ```lynx http://10.69.3.3:8003```
+15. Mengakses menggunakan ```lynx http://192.239.3.3:8003```
 16. Membuat text editor /var/www/jarkom/index.php pada node wisanggeni
 ```nano /var/www/jarkom/index.php```
 17. Menambahkan isi file dengan
@@ -592,7 +592,7 @@ service nginx restart
 service php7.2-fpm start
 service php7.2-fpm status
 ```
-21. Mengakses menggunakan ```lynx http://10.69.3.3:8002```
+21. Mengakses menggunakan ```lynx http://192.239.3.3:8002```
 ## Kendala yang Dihadapi
 Tidak ada kendala yang ditemukan
 
