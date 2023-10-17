@@ -604,9 +604,9 @@ Tidak ada kendala yang ditemukan
 2. Memodifikasi konfigurasi berupa
 ```
 upstream webserver {
-    server 10.69.3.2:8001; # Prabukusuma
-    server 10.69.3.3:8002; # Abimanyu
-    server 10.69.3.4:8003; # Wisanggeni
+    server 192.239.3.2:8001; # Prabukusuma
+    server 192.239.3.3:8002; # Abimanyu
+    server 192.239.3.4:8003; # Wisanggeni
 }
 server {
     listen 80;
@@ -916,7 +916,7 @@ lynx http://www.rjp.baratayuda.abimanyu.IT12.com:14000
 ```
 ServerAlias 192.239.3.3
 ```
-3. Mengakses ```lynx http://10.69.3.3``` dan akan tampil halaman home
+3. Mengakses ```lynx http://192.239.3.3``` dan akan tampil halaman home
 ## Kendala yang Dihadapi
 Tidak ada kendala
 
