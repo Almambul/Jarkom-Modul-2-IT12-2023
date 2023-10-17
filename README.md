@@ -365,6 +365,7 @@ Tidak ada kendala yang ditemukan
 
 # Soal 7
 ## Screenshot
+![image](https://github.com/Almambul/Jarkom-Modul-2-IT12-2023/assets/113072294/a7959857-19e4-4129-a9f4-1b70c16ef0fb)
 ## Cara Pengerjaan
 1. Membuka text editor /etc/bind/jarkom/abimanyu.IT12.com
 ```nano /etc/bind/jarkom/abimanyu.IT12.com```
@@ -407,6 +408,7 @@ baratayuda IN 	NS 	ns1
 
 # Soal 8
 ## Screenshot
+![image](https://github.com/Almambul/Jarkom-Modul-2-IT12-2023/assets/113072294/06037b55-4f8a-47d3-98c0-b241cc3897cf)
 ## Cara Pengerjaan
 1. Membuka text editor /etc/bind/named.conf.local
 ```nano /etc/bind/named.conf.local```
@@ -453,13 +455,28 @@ Tidak ada kendala yang ditemukan
 
 # Soal 9
 ## Screenshot
+![image](https://github.com/Almambul/Jarkom-Modul-2-IT12-2023/assets/113072294/80366a54-e858-4c1c-a584-e4374bacf508)
+![image](https://github.com/Almambul/Jarkom-Modul-2-IT12-2023/assets/113072294/8cd24513-d292-4912-b7bd-94429f97f4ca)
+![image](https://github.com/Almambul/Jarkom-Modul-2-IT12-2023/assets/113072294/27a595a4-b8c0-47c6-8677-4e33dd308042)
+
 ## Cara Pengerjaan
 1. Membuat text editor /var/www/jarkom/index.php pada node prabukusuma
 ```nano /var/www/jarkom/index.php```
-2. Memasukkan kode php Halo
+2. Memasukkan kode php dari resources
 ```
 <?php
-echo "Hello World from prabukusuma";
+$hostname = gethostname();
+$date = date('Y-m-d H:i:s');
+$php_version = phpversion();
+$username = get_current_user();
+
+
+
+echo "Hello World!<br>";
+echo "Saya adalah: $username<br>";
+echo "Saat ini berada di: $hostname<br>";
+echo "Versi PHP yang saya gunakan: $php_version<br>";
+echo "Tanggal saat ini: $date<br>";
 ?>
 ```
 3. Membuat text editor /etc/nginx/sites-available/jarkom
