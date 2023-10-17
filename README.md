@@ -114,7 +114,7 @@ $TTL    604800
                 604800 )        ; Negative Cache TTL
 ;
 @       IN      NS      arjuna.IT12.com.
-@       IN      A       192.241.3.5
+@       IN      A       192.239.3.5
 www     IN      CNAME 	arjuna.IT12.com.
 ```
 9. Restart bind9
@@ -186,7 +186,7 @@ $TTL    604800
                 604800 )        ; Negative Cache TTL
 ;
 @       IN      NS      abimanyu.IT12.com.
-@       IN      A       192.241.3.3
+@       IN      A       192.239.3.3
 www     IN      CNAME 	abimanyu.IT12.com.
 ```
 6. Restart bind9
