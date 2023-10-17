@@ -429,7 +429,7 @@ nano /etc/bind/zones/rjp.baratayuda.abimanyu.it12.com
 ; BIND data file for local loopback interface
 ;
 $TTL    604800
-@       IN      SOA     rjp.baratayuda.abimanyu.it12.com. root.rjp.baratayuda.abimanyu.it11.com. (
+@       IN      SOA     rjp.baratayuda.abimanyu.it12.com. root.rjp.baratayuda.abimanyu.IT12.com. (
                               2         ; Serial
                          604800         ; Refresh
                           86400         ; Retry
@@ -512,7 +512,7 @@ server {
 service php7.2-fpm start
 service php7.2-fpm status
 ```
-9. Mengakses menggunakan ```lynx http://10.69.3.2:8001```
+9. Mengakses menggunakan ```lynx http://192.239.3.2:8001```
 10. Membuat text editor /var/www/jarkom/index.php pada node wisanggeni
 ```nano /var/www/jarkom/index.php```
 11. Menambahkan isi file dengan
@@ -552,7 +552,7 @@ service nginx restart
 service php7.2-fpm start
 service php7.2-fpm status
 ```
-15. Mengakses menggunakan ```lynx http://10.69.3.3:8003```
+15. Mengakses menggunakan ```lynx http://192.239.3.3:8003```
 16. Membuat text editor /var/www/jarkom/index.php pada node wisanggeni
 ```nano /var/www/jarkom/index.php```
 17. Menambahkan isi file dengan
@@ -592,7 +592,7 @@ service nginx restart
 service php7.2-fpm start
 service php7.2-fpm status
 ```
-21. Mengakses menggunakan ```lynx http://10.69.3.3:8002```
+21. Mengakses menggunakan ```lynx http://192.239.3.3:8002```
 ## Kendala yang Dihadapi
 Tidak ada kendala yang ditemukan
 
@@ -605,9 +605,9 @@ Tidak ada kendala yang ditemukan
 2. Memodifikasi konfigurasi berupa
 ```
 upstream webserver {
-    server 10.69.3.2:8001; # Prabukusuma
-    server 10.69.3.3:8002; # Abimanyu
-    server 10.69.3.4:8003; # Wisanggeni
+    server 192.239.3.2:8001; # Prabukusuma
+    server 192.239.3.3:8002; # Abimanyu
+    server 192.239.3.4:8003; # Wisanggeni
 }
 server {
     listen 80;
@@ -907,7 +907,7 @@ htpasswd -c /etc/apache2/.htpasswd Wayang
 ```
 5. Menjalankan perintah
 ```
-a2ensite rjp-baratayuda-abimanyu-it11.conf
+a2ensite rjp-baratayuda-abimanyu-IT12.conf
 ```
 6. Menjalankan perintah
 ```
@@ -941,7 +941,7 @@ lynx http://www.rjp.baratayuda.abimanyu.IT12.com:14000
 ```
 ServerAlias 192.239.3.3
 ```
-3. Mengakses ```lynx http://10.69.3.3``` dan akan tampil halaman home
+3. Mengakses ```lynx http://192.239.3.3``` dan akan tampil halaman home
 ## Kendala yang Dihadapi
 Tidak ada kendala
 
