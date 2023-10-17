@@ -617,51 +617,160 @@ Tidak ada kendala yang ditemukan
 # Soal 11
 ## Screenshot
 ## Cara Pengerjaan
-## Kendala yang Dihadapi
+1. Membuka text editor /etc/apache2/sites-available/abimanyu-IT12.conf
+```
+nano /etc/apache2/sites-available/abimanyu-IT12.conf
+```   
+2. Memodifikasi isi dari file tersebut menjadi
+```
+<VirtualHost *:80>
+    ServerName abimanyu.IT12.com
+    ServerAlias www.abimanyu.IT12.com
+    ServerAdmin webmaster@localhost
+    DocumentRoot /var/www/abimanyu-IT12
 
+    <Directory /var/www/abimanyu-IT12>
+        Options +Indexes
+    </Directory>
+
+    RewriteEngine On
+
+    ErrorLog ${APACHE_LOG_DIR}/error.log
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
+</VirtualHost>
+```
+3. Melakukan perintah download kebutuhan website dari google drive dan diletakkan ke direktori var/www
+```
+cd /var/www
+
+wget --no-check-certificate 'https://docs.google.com/uc?export=download&id=1a4V23hwK9S7hQEDEcv9FL14UkkrHc-Zc' -O abimanyu
+
+unzip abimanyu -d abimanyu-IT12
+
+rm abimanyu
+
+mv abimanyu-IT12/abimanyu.yyy.com/* abimanyu-IT12
+
+rmdir abimanyu-IT12/abimanyu.yyy.com
+```
+4. Menuju node Nakula dan melakukan pengecekan
+```
+lynx http://www.abimanyu.IT12.com
+```
+## Kendala yang Dihadapi
+Tidak ada kendala
 
 # Soal 12
 ## Screenshot
 ## Cara Pengerjaan
+
 ## Kendala yang Dihadapi
 
 
 # Soal 13
 ## Screenshot
 ## Cara Pengerjaan
+
 ## Kendala yang Dihadapi
 
 # Soal 14
 ## Screenshot
 ## Cara Pengerjaan
+
 ## Kendala yang Dihadapi
 
 # Soal 15
 ## Screenshot
 ## Cara Pengerjaan
+
 ## Kendala yang Dihadapi
 
 # Soal 16
 ## Screenshot
 ## Cara Pengerjaan
+
 ## Kendala yang Dihadapi
 
 # Soal 17
 ## Screenshot
 ## Cara Pengerjaan
+
 ## Kendala yang Dihadapi
 
 # Soal 18
 ## Screenshot
 ## Cara Pengerjaan
+1. Membuka text editor /etc/apache2/sites-available/rjp-baratayuda-abimanyu-IT12.conf
+2. Menambahkan konfigurasi berupa
+```
+ <Directory "/var/www/rjp-baratayuda-abimanyu">
+        Options +FollowSymLinks -Multiviews
+        AllowOverride All
+        AuthType Basic
+        AuthName "Restricted Content"
+        AuthUserFile /etc/apache2/.htpasswd
+        Require valid-user
+    </Directory>
+```
+3. Melakukan konfigurasi autentikasi user dengan berpindah folder terlebih dulu
+```
+cd /etc/apache2/sites-available/
+```
+4. Menjalankan perintah
+```
+htpasswd -c /etc/apache2/.htpasswd Wayang
+```
+5. Menjalankan perintah
+```
+a2ensite rjp-baratayuda-abimanyu-it11.conf
+```
+6. Menjalankan perintah
+```
+service apache2 reload
+```
+7. Menjalankan perintah
+```
+service apache2 start
+```
+8. Menjalankan perintah
+```
+service apache2 status
+```
+9. Memasukkan password sesuai yang diminta yaitu baratayudaIT12
+10. Menjalankan perintah berikut untuk mengakses
+```
+lynx http://www.rjp.baratayuda.abimanyu.IT12.com:14000
+```
+11. Menampilkan halaman autentikasi use dan permintaan password
 ## Kendala yang Dihadapi
+1. Mengalami error
 
 # Soal 19
 ## Screenshot
 ## Cara Pengerjaan
+1. Membuka text editor /etc/apache2/sites-available/abimanyu-IT12.conf
+2. Menambahkan kode
+```
+ServerAlias 192.239.3.3
+```
+3. Mengakses ```lynx http://10.69.3.3``` dan akan tampil halaman home
 ## Kendala yang Dihadapi
 
 # Soal 20
 ## Screenshot
 ## Cara Pengerjaan
+1. Membuka text editor /etc/apache2/sites-available/parikesit-abimanyu-IT12.conf
+2. Memodifikasi isi file dengan
+```
+# Tambahkan aturan RewriteCond untuk mencocokkan permintaan yang mengandung "abimanyu"
+    RewriteCond %{REQUEST_URI} abimanyu [NC]
+
+    # Terapkan aturan RewriteRule untuk mengarahkan permintaan ke /public/images/abimanyu.png
+    RewriteRule (.*) /public/images/abimanyu.png [L]
+```
+3. Mengakses website dengan menambah string yang mengandung kata abimanyu
+```
+lynx http://www.parikesit.abimanyu.IT12.com/abimanyu
+```
+4. Tampilan halaman yang meminta persetujuan mendownload file png abimanyu.png
 ## Kendala yang Dihadapi
