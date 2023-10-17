@@ -663,39 +663,185 @@ Tidak ada kendala
 # Soal 12
 ## Screenshot
 ## Cara Pengerjaan
+1. Mengkonfigurasi pada /etc/apache2/sites-available/abimanyu-IT12.conf
+2. Memodifikasi kode menjadi
+```
+<Directory /var/www/abimanyu-IT12>
+        Options +Indexes
+    </Directory>
 
+    Alias /home /var/www/abimanyu-IT12/index.php/home
+```
+3. Menjalankan konfigurasi untuk menjalankan perintah
+```
+cd /etc/apache2/sites-available/
+```
+4. Menjalankan perintah
+```
+a2enmod rewrite
+a2ensite abimanyu-IT12.conf
+service apache2 reload
+service apache2 start
+service apache2 status
+```
+5. Menuju ke node nakula dan melakukan pengecekan
+```
+lynx http://www.abimanyu.IT12.com/home
+```
 ## Kendala yang Dihadapi
-
+Tidak ada kendala
 
 # Soal 13
 ## Screenshot
 ## Cara Pengerjaan
+1. Melakukan konfigurasi pada ```/etc/apache2/sites-available/parikesit-abimanyu-IT12.conf```
+2. Memodifikasi kode didalamnya dengan
+```
+<VirtualHost *:80>
+    ServerName parikesit.abimanyu.IT12.com
+    ServerAlias www.parikesit.abimanyu.IT12.com
+    ServerAdmin webmaster@localhost
+    DocumentRoot /var/www/parikesit-abimanyu-IT12
 
+    ErrorLog ${APACHE_LOG_DIR}/error.log
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
+</VirtualHost>
+```
+3. Melakukan download kebutuhan dari drive sesuai ketentuan
+```
+cd /var/www
+wget --no-check-certificate 'https://docs.google.com/uc?export=download&id=1LdbYntiYVF_NVNgJis1GLCLPEGyIOreS' -O parikesit.zip
+unzip parikesit.zip -d parikesit-abimanyu-IT12
+rm parikesit.zip
+mv parikesit-abimanyu-IT12/parikesit.abimanyu.yyy.com/* parikesit-abimanyu-IT12
+rm -rf parikesit-abimanyu-IT12/parikesit.abimanyu.yyy.com
+```
+4. Mengecek pada node nakula
+```
+lynx http://www.parikesit.abimanyu.IT12.com
+```
 ## Kendala yang Dihadapi
+Tidak ada kendala
 
 # Soal 14
 ## Screenshot
 ## Cara Pengerjaan
+1. Menyalakan directory listing pada folder public dan mematikan directory listing pada secret dengan mengakses ke
+```
+/etc/apache2/sites-available/parikesit-abimanyu-IT12.conf 
+```
+2. Memodifikasi kode
+```
+<Directory /var/www/parikesit-abimanyu-IT12/public>
+   Options +Indexes
+</Directory>
 
+<Directory /var/www/parikesit-abimanyu-IT12/secret>
+   Options -Indexes
+</Directory>
+```
+3. Mengakses pada node nakula berupa
+```
+lynx http://www.parikesit.abimanyu.IT12.com/public
+```
+4. Mengakses pada node nakula dengan merubah file akhir menjadi
+```
+lynx http://www.parikesit.abimanyu.IT12.com/secret
+```
 ## Kendala yang Dihadapi
+Tidak ada kendala
 
 # Soal 15
 ## Screenshot
 ## Cara Pengerjaan
-
+1. Membuka text editor /etc/apache2/sites-available/parikesit-abimanyu-IT12.conf
+2. Menambahkan kode
+```
+ErrorDocument 404 /error/404.html
+ErrorDocument 403 /error/403.html
+```
+3. Mengakses di nakula berupa
+```
+lynx http://www.parikesit.abimanyu.IT12.com/secret
+```
+4. Mengakses kembali perintah yang sama dengan menambahkan string
+```
+lynx http://www.parikesit.abimanyu.IT12.com/acak
+```
 ## Kendala yang Dihadapi
+Tidak ada kendala
 
 # Soal 16
 ## Screenshot
 ## Cara Pengerjaan
-
+1. Membuka text editor /etc/apache2/sites-available/parikesit-abimanyu-IT12.conf
+```
+ nano /etc/apache2/sites-available/parikesit-abimanyu-IT12.conf
+```
+2. Menambahkan kode
+```
+Alias /js /var/www/parikesit-abimanyu-IT12/public/js
+RewriteEngine On
+```
+3. Menjalankan perintah
+```
+cd /etc/apache2/sites-available/
+a2enmod rewrite
+a2ensite parikesit-abimanyu-IT12.conf
+service apache2 reload
+service apache2 start
+service apache2 status
+```
+4. Mengakses website pada node nakula
+```
+lynx http://www.parikesit.abimanyu.IT12.com/js
+```
 ## Kendala yang Dihadapi
+Tidak ada kendala
 
 # Soal 17
 ## Screenshot
 ## Cara Pengerjaan
+1. Melakukan modifikasi konfigurasi pada  /etc/apache2/sites-available/rjp-baratayuda-abimanyu-IT12.conf
+```nano  /etc/apache2/sites-available/rjp-baratayuda-abimanyu-IT12.conf```
+```
+# untuk konfigurasi dari port mana saja website dapat diakses, sesuai dengan perintah pada soal 
+<VirtualHost *:14000 *:14400>
+    ServerName rjp.baratayuda.abimanyu.IT12.com
+    ServerAlias www.rjp.baratayuda.abimanyu.IT12.com
+    ServerAdmin webmaster@localhost
+    DocumentRoot /var/www/rjp-baratayuda-abimanyu
 
+    ErrorLog ${APACHE_LOG_DIR}/error.log
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
+</VirtualHost>
+```
+3. Melakukan konfigurasi port pada
+```nano /etc/apache2/ports.conf```
+```
+Listen 80
+Listen 14000
+Listen 14400
+
+<IfModule ssl_module>
+        Listen 443
+</IfModule>
+
+<IfModule mod_gnutls.c>
+        Listen 443
+</IfModule>
+# vim: syntax=apache ts=4 sw=4 sts=4 sr noet
+```
+5. Mengakses website dengan
+```
+lynx http://www.rjp.baratayuda.abimanyu.IT12.com
+```
+6. Mengakses dengan menambah port
+```
+lynx http://www.rjp.baratayuda.abimanyu.IT12.com:14000
+```
 ## Kendala yang Dihadapi
+Tidak ada kendala
 
 # Soal 18
 ## Screenshot
@@ -755,6 +901,7 @@ ServerAlias 192.239.3.3
 ```
 3. Mengakses ```lynx http://10.69.3.3``` dan akan tampil halaman home
 ## Kendala yang Dihadapi
+Tidak ada kendala
 
 # Soal 20
 ## Screenshot
@@ -774,3 +921,4 @@ lynx http://www.parikesit.abimanyu.IT12.com/abimanyu
 ```
 4. Tampilan halaman yang meminta persetujuan mendownload file png abimanyu.png
 ## Kendala yang Dihadapi
+Tidak ada kendala
