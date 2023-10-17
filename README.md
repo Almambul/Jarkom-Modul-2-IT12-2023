@@ -1,4 +1,3 @@
-![image](https://github.com/Almambul/Jarkom-Modul-2-IT12-2023/assets/113072294/966e3195-c59a-450c-b070-c7e18bcd0e9d)# Jarkom-Modul-2-IT12-2023
 Anggota Kelompok : 
 1. Raditya Pratama - 5027211047
 2. Salmaa Satifha Dewi - 5027211011
